@@ -1,9 +1,9 @@
 <?php
 
+use AlphaOlomi\Notes\Concerns\HasNotes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use AlphaOlomi\Notes\Concerns\HasNotes;
 
 use function Pest\Laravel\assertDatabaseHas;
 

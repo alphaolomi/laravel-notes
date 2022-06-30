@@ -2,13 +2,13 @@
 
 namespace AlphaOlomi\Notes\Models;
 
+use AlphaOlomi\Notes\Contracts\IsNote;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use AlphaOlomi\Notes\Contracts\IsNote;
 
 class Note extends Model implements IsNote
 {

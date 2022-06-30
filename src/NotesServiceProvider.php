@@ -4,7 +4,6 @@ namespace RyanChandler\Notes;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use AlphaOlomi\Notes\Commands\NotesCommand;
 
 class NotesServiceProvider extends PackageServiceProvider
 {

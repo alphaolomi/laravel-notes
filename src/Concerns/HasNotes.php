@@ -2,10 +2,10 @@
 
 namespace AlphaOlomi\Notes\Concerns;
 
+use AlphaOlomi\Notes\Contracts\IsNote;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Auth;
-use AlphaOlomi\Notes\Contracts\IsNote;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Model

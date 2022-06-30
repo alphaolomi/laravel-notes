@@ -1,7 +1,7 @@
 <?php
 
-use Orchestra\Testbench\Factories\UserFactory;
 use AlphaOlomi\Notes\Tests\TestCase;
+use Orchestra\Testbench\Factories\UserFactory;
 
 use function Pest\Laravel\actingAs;
 
