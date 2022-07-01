@@ -1,6 +1,6 @@
 <?php
 
-namespace RyanChandler\Notes;
+namespace AlphaOlomi\Notes;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
