@@ -80,7 +80,7 @@ trait HasNotes
      */
     public function addNote(string $content, Model $user = null, IsNote $parent = null)
     {
-        $note =  $this->notes()->create([
+        $note = $this->notes()->create([
             'content' => $content,
             'user_id' => $user ? $user->getKey() : Auth::id(),
             'parent_id' => $parent ? $parent?->getKey() : null,
