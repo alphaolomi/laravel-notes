@@ -24,7 +24,7 @@ class Note extends Model implements IsNote
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(config('notes.user'), 'user_id');
+        return $this->belongsTo(config('notes.user_model'), 'user_id');
     }
 
     public function parent(): BelongsTo

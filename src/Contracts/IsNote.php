@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
+ * Note contract.
+ *
+ * @property-read MorphTo $notes
+ * @property-read BelongsTo $parent
+ * @property-read HasMany $children
+ * @property-read BelongsTo $user
+ *
  * @mixin \Illuminate\Database\Eloquent\Model
  */
 interface IsNote

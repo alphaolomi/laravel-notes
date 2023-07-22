@@ -1,20 +1,21 @@
 <?php
 
 use AlphaOlomi\Notes\Concerns\HasNotes;
+use AlphaOlomi\Notes\Models\Note;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 use function Pest\Laravel\assertDatabaseHas;
 
-class Doc extends Model
+class Project extends Model
 {
     use HasNotes;
 
     public static function booted()
     {
-        Schema::dropIfExists('docs');
-        Schema::create('docs', function (Blueprint $table) {
+        Schema::dropIfExists('projects');
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,11 +23,15 @@ class Doc extends Model
 }
 
 it('can be created', function () {
-    $project = Doc::create();
-    $note = $project->addNote('Hello, world!');
+
+    $note = Note::create([
+        'title' => 'Hello, world!',
+        'content' => 'Hello, world!',
+    ]);
 
     assertDatabaseHas('notes', [
         'id' => $note->getKey(),
+        'title' => 'Hello, world!',
         'content' => 'Hello, world!',
     ]);
 });
@@ -34,8 +39,13 @@ it('can be created', function () {
 it('can belong to a user', function () {
     actingAsUser();
 
-    $project = Doc::create();
-    $note = $project->addNote('Great project!');
+    $note = Note::create([
+        'title' => 'Hello, world!',
+        'content' => 'Hello, world!',
+        'user_id' => auth()->id(),
+    ]);
+
+    expect($note->user)->toBe(auth()->user());
 
     assertDatabaseHas('notes', [
         'id' => $note->getKey(),
@@ -45,13 +55,17 @@ it('can belong to a user', function () {
 });
 
 it('can belong to another note', function () {
-    $project = Doc::create();
-    $parent = $project->addNote('Hello, world!');
-    $child = $project->addNote('Well Done!', parent: $parent);
+    $project = Project::create();
+    $parentNote = $project->addNote('Hello, world!');
+    $childNote = $project->addNote('Well Done!', parent: $parentNote);
+
+    expect($parentNote->children)->toHaveCount(1);
+
+    expect($childNote->parent)->toBe($parentNote);
 
     assertDatabaseHas('notes', [
-        'id' => $child->getKey(),
+        'id' => $childNote->getKey(),
         'content' => 'Well Done!',
-        'parent_id' => $parent->getKey(),
+        'parent_id' => $parentNote->getKey(),
     ]);
 });
