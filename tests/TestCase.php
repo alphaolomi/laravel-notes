@@ -2,9 +2,9 @@
 
 namespace AlphaOlomi\Notes\Tests;
 
-use AlphaOlomi\Notes\NotesServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use AlphaOlomi\Notes\NotesServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -28,12 +28,9 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        $migration = require __DIR__ . '/../database/migrations/create_notes_table.php';
+        /*
+        $migration = include __DIR__.'/../database/migrations/create_laravel-notes_table.php.stub';
         $migration->up();
-    }
-
-    protected function defineDatabaseMigrations()
-    {
-        $this->loadLaravelMigrations();
+        */
     }
 }

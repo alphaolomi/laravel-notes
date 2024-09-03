@@ -1,14 +1,11 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
   - name: Ask a question
-    url: https://github.com/ryangjchandler/laravel-notes/discussions/new?category=q-a
+    url: https://github.com/alphaolomi/laravel-notes/discussions/new?category=q-a
     about: Ask the community for help
   - name: Request a feature
-    url: https://github.com/ryangjchandler/laravel-notes/discussions/new?category=ideas
+    url: https://github.com/alphaolomi/laravel-notes/discussions/new?category=ideas
     about: Share ideas for new features
   - name: Report a security issue
-    url: https://github.com/ryangjchandler/laravel-notes/security/policy
+    url: https://github.com/alphaolomi/laravel-notes/security/policy
     about: Learn how to notify us for sensitive bugs
-  - name: Report a bug
-    url: https://github.com/ryangjchandler/laravel-notes/issues/new
-    about: Report a reproducable bug

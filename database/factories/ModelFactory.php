@@ -3,16 +3,17 @@
 namespace AlphaOlomi\Notes\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use AlphaOlomi\Notes\Models\Note;
 
-class NoteFactory extends Factory
+/*
+class ModelFactory extends Factory
 {
-    protected $model = Note::class;
+    protected $model = YourModel::class;
 
     public function definition()
     {
         return [
-            'content' => $this->faker->words(rand(3, 10), asText: true),
+
         ];
     }
 }
+*/

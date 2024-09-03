@@ -4,20 +4,22 @@ namespace AlphaOlomi\Notes;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use AlphaOlomi\Notes\Commands\AddNoteCommand;
 
 class NotesServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
+        /*
+         * This class is a Package Service Provider
+         *
+         * More info: https://github.com/spatie/laravel-package-tools
+         */
         $package
             ->name('laravel-notes')
-            ->hasConfigFile();
-    }
-
-    public function packageBooted()
-    {
-        $this->loadMigrationsFrom([
-            __DIR__ . '/../database/migrations',
-        ]);
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasMigration('create_laravel_notes_table')
+            ->hasCommand(AddNoteCommand::class);
     }
 }
